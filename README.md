@@ -1,2 +1,6 @@
-# react native hybrid app ,base storyboard
+# react native hybrid app 
+
+* [x] iOS base storyboard
+
+* [ ] android 
 

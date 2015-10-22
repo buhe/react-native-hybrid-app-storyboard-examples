@@ -50,4 +50,4 @@ var styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('fiteam', () => fiteam);
-AppRegistry.registerComponent('discovery', () => require('./views/discovery'));
+AppRegistry.registerComponent('discovery', () => require('./views/timeline'));

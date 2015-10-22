@@ -1,5 +1,5 @@
 # react native hybrid app 
 
 * [x] iOS base storyboard
-* [ ] android 
+* [x] android base TabBar layout
 

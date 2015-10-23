@@ -66,6 +66,10 @@ var ExamItem = React.createClass({
                 source={{uri: 'https://drscdn.500px.org/photo/3348095/h%3D450/a49d347c75bbdbec450f94085bc01ea2'}}
                 style={styles.image}
                 >
+              <Image
+                  source={{uri: 'https://drscdn.500px.org/photo/3348095/h%3D450/a49d347c75bbdbec450f94085bc01ea2'}}
+                  style={{top:8,left:8,width: 32,height: 32}}
+                  />
             </Image>
           </View>
           <View>

@@ -4,6 +4,8 @@
 var React = require('react-native');
 var RefreshableListView = require('react-native-refreshable-listview');
 var { Icon, } = require('react-native-icons');
+var Dimensions = require('Dimensions');
+var deviceScreen = Dimensions.get('window');
 var {
     AppRegistry,
     StyleSheet,
@@ -42,17 +44,21 @@ var ExamItem = React.createClass({
     return (
         <View style={styles.container}>
           <View style={styles.nameContainer}>
-            <Image
-                source={{uri: 'https://drscdn.500px.org/photo/3348095/h%3D450/a49d347c75bbdbec450f94085bc01ea2'}}
-                style={styles.avatar}
-                />
-            <View style={styles.account}>
-              <Text>用户名A</Text>
-              <Text style={styles.postDetailsLine}>3天前</Text>
+            <View style={{flexDirection:'row'}}>
+              <Image
+                  source={{uri: 'https://drscdn.500px.org/photo/3348095/h%3D450/a49d347c75bbdbec450f94085bc01ea2'}}
+                  style={styles.avatar}
+                  />
+              <View style={styles.account}>
+                <Text>用户名A</Text>
+                <Text style={styles.postDetailsLine}>3天前</Text>
+              </View>
             </View>
-            <TouchableOpacity>
-              <View style={styles.follow}><Text>+关注</Text></View>
-            </TouchableOpacity>
+            <View>
+              <TouchableOpacity>
+                <View style={styles.follow}><Text>+关注</Text></View>
+              </TouchableOpacity>
+            </View>
           </View>
           <View style={styles.imageContainer}>
 
@@ -68,27 +74,29 @@ var ExamItem = React.createClass({
               描述100个字描述100个字描述100个字描述100个字描述100个字描述100个字描述100个字描述100个字</Text>
           </View>
           <View style={styles.actionContainer}>
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity>
-                <Icon
-                    name='ion|android-favorite-outline'
-                    size={32}
-                    style={styles.avatar}
-                    color='gray'
-                    />
-              </TouchableOpacity>
-              <Text style={styles.actionCount}>128</Text>
-            </View>
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity>
-                <Icon
-                    name='ion|chatbox-working'
-                    size={32}
-                    style={styles.avatar}
-                    color='gray'
-                    />
-              </TouchableOpacity>
-              <Text style={styles.actionCount}>320</Text>
+            <View style={styles.leftButtonContainer}>
+              <View style={styles.buttonContainer}>
+                <TouchableOpacity>
+                  <Icon
+                      name='ion|android-favorite-outline'
+                      size={32}
+                      style={styles.avatar}
+                      color='gray'
+                      />
+                </TouchableOpacity>
+                <Text style={styles.actionCount}>128</Text>
+              </View>
+              <View style={styles.buttonContainer}>
+                <TouchableOpacity>
+                  <Icon
+                      name='ion|chatbox-working'
+                      size={32}
+                      style={styles.avatar}
+                      color='gray'
+                      />
+                </TouchableOpacity>
+                <Text style={styles.actionCount}>320</Text>
+              </View>
             </View>
             <View style={styles.rightButtonContainer}>
               <TouchableOpacity>
@@ -182,7 +190,9 @@ var styles = StyleSheet.create({
   nameContainer: {
     flex: 1,
     flexDirection: 'row',
-    margin: 8
+    margin: 8,
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   account: {
     marginLeft: 8
@@ -199,7 +209,11 @@ var styles = StyleSheet.create({
   actionContainer: {
     flex: 1,
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  leftButtonContainer: {
+    flexDirection: 'row',
   },
   buttonContainer: {
     //flex: 1,
@@ -209,16 +223,16 @@ var styles = StyleSheet.create({
   },
   rightButtonContainer: {
     //flex: 1,
-    marginLeft: 110,
+    marginRight: 8,
     flexDirection: 'row',
     //alignItems: 'center',
   },
-  actionCount:{
-    marginLeft:8
+  actionCount: {
+    marginLeft: 8
   },
   image: {
     flex: 1,
-    width: 320,
+    width: deviceScreen.width,
     height: 320
   },
   avatar: {
@@ -227,7 +241,7 @@ var styles = StyleSheet.create({
     height: 32
   },
   follow: {
-    marginLeft: 150,
+    marginRight: 0,
     marginTop: 3,
     marginBottom: 2,
     borderStyle: 'solid',
